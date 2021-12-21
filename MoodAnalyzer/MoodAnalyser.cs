@@ -26,6 +26,11 @@ namespace MoodAnalyzer
                 {
                     return "SAD";
                 }
+                else if (message.Contains(null))
+                {
+                    throw new NewCustomException(NewCustomException.ExceptionType.NULL_TYPE_EXCEPTION, "Mood can't be Null");
+
+                }
                 else
                 {
                     return "HAPPY";
@@ -36,12 +41,10 @@ namespace MoodAnalyzer
 
 
 
-            //catch block will catch the exception
-            catch (NullReferenceException ex)
+            catch (NullReferenceException)//this block will catch exception if there
             {
-                //prints the default exception message 
-                Console.WriteLine(ex.Message);
-                return "HAPPY";
+                throw new NewCustomException(NewCustomException.ExceptionType.NULL_TYPE_EXCEPTION, "Mood can't be Null");
+                //return ;
             }
         }
     }
