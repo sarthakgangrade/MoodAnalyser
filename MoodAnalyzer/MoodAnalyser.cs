@@ -8,7 +8,18 @@ namespace MoodAnalyzer
 {
     public class MoodAnalyser
     {
-        //method to analyse the mood 
+        //method to analyse the mood
+        public string message;
+        public MoodAnalyser()
+        {
+
+        }
+        //creadted parameterized constructor
+        public MoodAnalyser(string message)
+        {
+            this.message = message;
+        }
+        
         public string AnalyseMood(string message)
         {
             //convert the message to lower case and then checks it contains happy or not
