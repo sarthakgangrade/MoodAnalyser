@@ -10,27 +10,43 @@ namespace MoodAnalyzer
     {
         //method to analyse the mood
         public string message;
-        public MoodAnalyser()
-        {
 
-        }
         //creadted parameterized constructor
         public MoodAnalyser(string message)
         {
             this.message = message;
         }
-        
+
         public string AnalyseMood(string message)
         {
-            //convert the message to lower case and then checks it contains happy or not
-            if (message.ToLower().Contains("sad"))
+            try
             {
-                return "SAD";
+                //convert the message to lower case and then checks it contains happy or not
+                if (message.ToLower().Contains("sad"))
+                {
+                    return "SAD";
+                }
+                else
+                {
+                    return "HAPPY";
+                }
+
             }
-            else
+
+
+
+
+            //catch block will catch the exception
+            catch (NullReferenceException ex)
             {
+                //prints the default exception message 
+                Console.WriteLine(ex.Message);
                 return "HAPPY";
             }
         }
     }
 }
+
+
+
+
