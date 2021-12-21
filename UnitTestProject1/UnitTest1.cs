@@ -53,6 +53,50 @@ namespace UnitTestProject1
             //Assert
             Assert.AreEqual(actual, expectedResult);
         }
+        //TC3.1-given Null mood should throw custom exception
+        [TestMethod]
+        public void GivenNullMoodShouldShowCustomException()
+        {
+            //Arrange
+            string message = null;
+            string expectedResult = "Mood can't be Null";
+            MoodAnalyser moodAnalyser = new MoodAnalyser(message);
+
+            try
+            {
+                //Act
+                string actual = moodAnalyser.AnalyseMood(message);
+            }
+            //catching exception checking result matches
+            catch (NewCustomException ex)
+            {
+                //Assert
+                Assert.AreEqual(expectedResult, ex.Message);
+            }
+
+        }
+
+        /*
+        //TC3.2 - given empty mood should throw exception indicating empty mood
+        [TestMethod]
+        public void GivenEmptyMoodShouldThrowCustomExceptionIndicatingEmptyMood()
+        {
+            //Arrange
+            //string message = " ";
+            string expectedResult = "Mood can't be empty";
+            MoodAnalyser moodAnalyser = new MoodAnalyser(string.Empty);
+            try
+            {
+                //Act
+                string actual = moodAnalyser.AnalyseMood();
+            }
+            catch(NewCustomException ex)
+            {
+                //Assert
+                Assert.AreEqual(expectedResult, ex.Message);
+            }
+
+        } */
 
     }
 }
