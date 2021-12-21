@@ -12,10 +12,10 @@ namespace MoodAnalyzer
         {
             Console.WriteLine("Welcome to mood analyzer problem");
             
-            string message = null;
-            MoodAnalyser moodAnalyse = new MoodAnalyser(null);
-            string result = moodAnalyse.AnalyseMood(message);
-            Console.WriteLine(result);
+            //string message = null;
+            //MoodAnalyser moodAnalyse = new MoodAnalyser(null);
+            //string result = moodAnalyse.AnalyseMood(message);
+            //Console.WriteLine(result);
             Console.ReadLine();
         }
     }
