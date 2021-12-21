@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NewCustomException;
 
 namespace MoodAnalyzer
 {
@@ -19,7 +20,7 @@ namespace MoodAnalyzer
 
         public string AnalyseMood(string message)
         {
-            try
+            
             {
                 //convert the message to lower case and then checks it contains happy or not
                 if (message.ToLower().Contains("sad"))
@@ -41,11 +42,11 @@ namespace MoodAnalyzer
 
 
 
-            catch (NullReferenceException)//this block will catch exception if there
+            /*catch (NullReferenceException)//this block will catch exception if there
             {
                 throw new NewCustomException(NewCustomException.ExceptionType.NULL_TYPE_EXCEPTION, "Mood can't be Null");
                 //return ;
-            }
+            }*/
         }
     }
 }

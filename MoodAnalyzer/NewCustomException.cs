@@ -16,6 +16,8 @@ namespace MoodAnalyzer
             //declaring types of exception
             NULL_TYPE_EXCEPTION,
             EMPTY_TYPE_EXCEPTION,
+            CONSTRUCTOR_NOT_FOUND,
+            CLASS_NOT_FOUND,
             //CLASS_NOT_FOUND,
             //CONSTRUCTOR_NOT_FOUND
         }
