@@ -130,5 +130,59 @@ Assert.AreEqual(expectedResult, ex.Message);
             }
             expected.Equals(obj);
         }
+        //TC5.1-Given mood analyser class name should return mood analyser object
+        [TestMethod]
+        public void GivenMoodAnalyserReturnMoodAnalyserObject()
+        {
+
+            MoodAnalyser expected = new MoodAnalyser();
+            MoodAnalyserFactory factory = new MoodAnalyserFactory();
+            object obj = factory.CreateMoodAnalyserParameterizedConstructor("MoodAnalyzer.MoodAnalyser", "MoodAnalyser", "I am in Happy mood");
+            //
+            expected.Equals(obj);
+        }
+
+        //TC5.2-Given mood analyser class name should ShouldThrowEcxception
+        [TestMethod]
+        public void GivenImproperClassNameShouldThrowException()
+        {
+            //Arrange
+            MoodAnalyser expected = new MoodAnalyser();
+            object obj = null;
+            try
+            {
+                MoodAnalyserFactory factory = new MoodAnalyserFactory();
+
+                obj = factory.CreateMoodAnalyserParameterizedConstructor("MoodAnalyzer.Mood", "MoodAnalyser", "I am in sad mood");
+            }
+            catch (NewCustomException ex)
+            {
+                throw new NewCustomException(NewCustomException.ExceptionType.CLASS_NOT_FOUND, "No such class is present");
+                //throw new Exception(ex.Message);
+
+            }
+            expected.Equals(obj);
+        }
+
+        //TC5.3-Given mood analyser wrong constructor name should ShouldThrowEcxception
+
+        [TestMethod]
+        public void GivenMoodAnalyserWhilePassingWrongConstructorShouldThrowException()
+        {
+            MoodAnalyser expected = new MoodAnalyser();
+            object actual = null;
+            try
+            {
+                MoodAnalyserFactory factory = new MoodAnalyserFactory();
+                //act
+                actual = factory.CreateMoodAnalyserParameterizedConstructor("ModeAnalyser", "ModeAnalyserconstrcutor", "Happy");
+
+            }
+            catch (NewCustomException exception)
+            {
+                throw new Exception(exception.Message);
+            }
+            actual.Equals(expected);
+        }
     }
 }
